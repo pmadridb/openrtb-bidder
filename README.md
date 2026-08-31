@@ -15,34 +15,6 @@ A high-throughput, low-latency Demand-Side Platform (DSP) decision engine built 
 
 ---
 
-## System Architecture Flow
-
-```
-[ Exchange / SSP ] 
-       │
-       │  1. POST /bid (OpenRTB 2.5 JSON)
-       ▼
-┌────────────────────────────────────────────────────────┐
-│ OpenRTB Bidder Service                                 │
-│                                                        │
-│  ├── Timeout Guard (50ms Read/Write Limits)            │
-│  ├── Engine Evaluation Pipeline                        │
-│  │     ├── Floor Price Filtering                        │
-│  │     ├── Format & Dimension Matching (e.g., 300x250) │
-│  │     └── Geo & Device Targeting                       │
-│  │                                                     │
-│  ├── [Match Found]    ──► HTTP 200 OK (Bid Object)     │
-│  └── [No Match/Floor] ──► HTTP 204 No Content          │
-└────────────────────────────────────────────────────────┘
-       │
-       │  2. Win Notification Callback
-       ▼
-  GET /win?impid={ID}&price=${AUCTION_PRICE}
-
-```
-
----
-
 ## API Endpoints
 
 | Endpoint | Method | Description | Response Codes |
@@ -224,5 +196,6 @@ Execute a performance test with 100 concurrent virtual users to verify latency b
 k6 run tests/load-test.js
 
 ```
-
+See example test result here:
+![Shows k6 load tests results. P999 at 1.25ms and p95 at ](loadtest.png)
 ---
