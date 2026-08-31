@@ -44,6 +44,8 @@ If no campaign satisfies all constraints, the bidder suppresses response generat
 ### Prerequisites
 
 * Go 1.22+ installed locally
+* K6 for load testing (optional)
+* Docker, kubectl and kubernetes cluster (optional)
 
 ### Running Locally
 
@@ -183,6 +185,7 @@ Apply the manifests located in the `k8s/` directory to deploy the service with a
 ```bash
 kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
+kubectl apply -f k8s/ingress.yaml
 
 ```
 
@@ -196,6 +199,6 @@ Execute a performance test with 100 concurrent virtual users to verify latency b
 k6 run tests/load-test.js
 
 ```
-See example test result here:
+See example load test result running agains local kubernetes cluster running 10 pods here:
 ![Shows k6 load tests results. P999 at 1.25ms and p95 at ](loadtest.png)
 ---
