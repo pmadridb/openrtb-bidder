@@ -7,9 +7,9 @@ import (
 	"os"
 	"time"
 
-	"openrtb-bidder/engine"
-	"openrtb-bidder/metrics"
-	"openrtb-bidder/model"
+	"openrtb-bidder/internal/engine"
+	"openrtb-bidder/internal/metrics"
+	"openrtb-bidder/internal/model"
 )
 
 type Server struct {

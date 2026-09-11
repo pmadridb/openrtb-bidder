@@ -55,7 +55,7 @@ git clone https://github.com/your-org/openrtb-bidder.git
 cd openrtb-bidder
 
 # Run the bidder server
-go run main.go
+go run ./cmd/bidder
 
 ```
 
@@ -180,12 +180,12 @@ docker run -d -p 8080:8080 --name bidder openrtb-bidder:latest
 
 ### Kubernetes Deployment
 
-Apply the manifests located in the `k8s/` directory to deploy the service with automated health probing and scaling:
+Apply the manifests located in the `deployments/k8s/` directory to deploy the service with automated health probing and scaling:
 
 ```bash
-kubectl apply -f k8s/deployment.yaml
-kubectl apply -f k8s/service.yaml
-kubectl apply -f k8s/ingress.yaml
+kubectl apply -f deployments/k8s/deployment.yaml
+kubectl apply -f deployments/k8s/ingress.yaml
+kubectl apply -f deployments/k8s/hpa.yaml
 
 ```
 
@@ -196,7 +196,7 @@ kubectl apply -f k8s/ingress.yaml
 Execute a performance test with 100 concurrent virtual users to verify latency bounds under load:
 
 ```bash
-k6 run tests/load-test.js
+k6 run test/load-test.js
 
 ```
 See example load test result running agains local kubernetes cluster running 10 pods here:

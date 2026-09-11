@@ -38,3 +38,4 @@ export default function () {
     'has valid bid response': (r) => r.json('seatbid.0.bid.0.price') > 0,
   });
 }
+

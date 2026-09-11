@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy all project files
 COPY . .
 
-# Build the entire package module (.)
-RUN CGO_ENABLED=0 GOOS=linux go build -o bidder .
+# Build the entire package module (./cmd/bidder)
+RUN CGO_ENABLED=0 GOOS=linux go build -o bidder ./cmd/bidder
 
 # Stage 2: Minimal runtime image
 FROM alpine:3.19

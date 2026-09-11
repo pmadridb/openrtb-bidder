@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"openrtb-bidder/model"
+	"openrtb-bidder/internal/model"
 )
 
 // TargetSize represents supported banner dimensions.

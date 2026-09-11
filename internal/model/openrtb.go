@@ -7,7 +7,7 @@ type BidRequest struct {
 	Site   *Site        `json:"site,omitempty"`
 	Device *Device      `json:"device,omitempty"`
 	User   *User        `json:"user,omitempty"`
-	At     int          `json:"at,omitempty"` // Auction type: 1 = First Price, 2 = Second Price
+	At     int          `json:"at,omitempty"`   // Auction type: 1 = First Price, 2 = Second Price
 	TMax   int          `json:"tmax,omitempty"` // Timeout in ms
 }
 
@@ -41,11 +41,11 @@ type User struct {
 
 // BidResponse represents the OpenRTB 2.5 response returned to the Exchange.
 type BidResponse struct {
-	ID         string    `json:"id"`
-	SeatBid    []SeatBid `json:"seatbid"`
-	BidID      string    `json:"bidid,omitempty"`
-	Cur        string    `json:"cur,omitempty"` // Currency, e.g., "USD"
-	NBR        int       `json:"nbr,omitempty"` // No-Bid Reason code
+	ID      string    `json:"id"`
+	SeatBid []SeatBid `json:"seatbid"`
+	BidID   string    `json:"bidid,omitempty"`
+	Cur     string    `json:"cur,omitempty"` // Currency, e.g., "USD"
+	NBR     int       `json:"nbr,omitempty"` // No-Bid Reason code
 }
 
 type SeatBid struct {
@@ -54,16 +54,16 @@ type SeatBid struct {
 }
 
 type Bid struct {
-	ID      string   `json:"id"`
-	ImpID   string   `json:"impid"`
-	Price   float64  `json:"price"`
-	AdID    string   `json:"adid,omitempty"`
-	NURL    string   `json:"nurl,omitempty"`
-	ADM     string   `json:"adm,omitempty"`
-	IURL    string   `json:"iurl,omitempty"`
-	CID     string   `json:"cid,omitempty"`
-	CRID    string   `json:"crid,omitempty"`
-	Cat     []string `json:"cat,omitempty"`
-	W       int      `json:"w,omitempty"`
-	H       int      `json:"h,omitempty"`
+	ID    string   `json:"id"`
+	ImpID string   `json:"impid"`
+	Price float64  `json:"price"`
+	AdID  string   `json:"adid,omitempty"`
+	NURL  string   `json:"nurl,omitempty"`
+	ADM   string   `json:"adm,omitempty"`
+	IURL  string   `json:"iurl,omitempty"`
+	CID   string   `json:"cid,omitempty"`
+	CRID  string   `json:"crid,omitempty"`
+	Cat   []string `json:"cat,omitempty"`
+	W     int      `json:"w,omitempty"`
+	H     int      `json:"h,omitempty"`
 }
